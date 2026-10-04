@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Trilha Python Full Stack</title>
+<style>
+  :root { --bg:#0e1116; --panel:#161b22; --line:#2a3340; --text:#e6edf3; --muted:#8b98a8; --accent:#3d8bfd; --code:#0b0f14; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family:"Segoe UI", system-ui, sans-serif; background:var(--bg); color:var(--text); }
+  header { padding:14px 18px; border-bottom:1px solid var(--line); }
+  header strong { display:block; }
+  header span { color:var(--muted); font-size:13px; }
+  nav { display:flex; gap:8px; padding:10px 18px; border-bottom:1px solid var(--line); position:sticky; top:0; background:var(--bg); z-index:2; flex-wrap:wrap; }
+  nav button { background:transparent; color:var(--muted); border:1px solid var(--line); border-radius:6px; padding:8px 12px; cursor:pointer; }
+  nav button.on { color:var(--text); border-color:var(--accent); }
+  main { max-width:920px; margin:0 auto; padding:20px 16px 64px; }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:16px; margin-bottom:14px; }
+  h1 { font-size:22px; margin:0 0 8px; }
+  h2 { font-size:18px; margin:0 0 8px; }
+  p, li { line-height:1.6; }
+  .muted { color:var(--muted); }
+  pre, code, textarea { font-family:ui-monospace, Consolas, monospace; }
+  pre { background:var(--code); border:1px solid var(--line); border-radius:8px; padding:12px; overflow:auto; }
+  textarea { width:100%; min-height:180px; background:var(--code); color:var(--text); border:1px solid var(--line); border-radius:8px; padding:12px; }
+  button.go { background:var(--accent); color:white; border:0; border-radius:6px; padding:8px 12px; cursor:pointer; margin-right:6px; }
+  #saida { white-space:pre-wrap; min-height:80px; }
+  table { width:100%; border-collapse:collapse; }
+  td, th { text-align:left; border-bottom:1px solid var(--line); padding:8px 6px; vertical-align:top; }
+  .hidden { display:none; }
+  ol.passos li { margin-bottom:6px; }
+</style>
+</head>
+<body>
+<header>
+  <strong>Trilha Python Full Stack</strong>
+  <span>Do zero ao avançado. Cada palavra no sentido literal.</span>
+</header>
+<nav>
+  <button class="on" data-tab="inicio">Início</button>
+  <button data-tab="aulas">Aulas</button>
+  <button data-tab="prompts">Prompts</button>
+  <button data-tab="lab">Laboratório</button>
+  <button data-tab="siglas">Siglas</button>
+  <button data-tab="duvidas">Dúvidas</button>
+</nav>
+<main>
+  <section id="inicio">
+    <div class="card">
+      <h1>Como usar esta trilha</h1>
+      <p>Você começa sem saber programar. Cada aula acrescenta uma peça. Não pule a peça: a próxima usa o nome da anterior.</p>
+      <ol class="passos">
+        <li>Leia a aula. A frase depois de "Em palavras literais" diz exatamente o que a palavra significa.</li>
+        <li>Copie o exemplo para o Laboratório e aperte Rodar. A saída é o que o programa fez.</li>
+        <li>Mude um número ou um texto e rode de novo. Se a saída mudar, você entendeu.</li>
+        <li>A aula de Prompts continua aqui. Ela ensina a pedir ajuda a uma IA. Não substitui a programação.</li>
+      </ol>
+      <p>Ordem: peça 1 a 4 são o zero. Peças 5 a 8 são o básico. Peças 9 a 12 são o full stack. Peças 13 a 15 são o avançado.</p>
+    </div>
+  </section>
+
+  <section id="aulas" class="hidden">
+    <div class="card">
+      <h2>1. O computador faz uma instrução de cada vez</h2>
+      <p>Em palavras literais: uma instrução é uma ordem escrita. O programa é a lista de ordens. Ele começa na primeira linha e desce.</p>
+      <pre>print("primeira")
+print("segunda")</pre>
+      <p>print significa "mostre este texto". As aspas marcam texto. Sem aspas, o nome é uma caixa, não o texto.</p>
+    </div>
+    <div class="card">
+      <h2>2. Variável: um nome para um valor</h2>
+      <p>Em palavras literais: a caixa se chama nome. Dentro dela está o texto Ana. O sinal = guarda. Não compara.</p>
+      <pre>nome = "Ana"
+print(nome)</pre>
+    </div>
+    <div class="card">
+      <h2>3. Tipo: o que pode ser feito com o valor</h2>
+      <p>Texto se soma colando. Número se soma contando. Misturar os dois sem converter dá erro.</p>
+      <pre>print("Ana" + " Souza")
+print(2 + 3)
+print("idade " + str(20))</pre>
+      <p>str transforma o número 20 no texto "20".</p>
+    </div>
+    <div class="card">
+      <h2>4. Decisão: if</h2>
+      <p>Em palavras literais: se a condição for verdadeira, rode o bloco recuado. Se não, rode o else. O recuo de 4 espaços é obrigatório.</p>
+      <pre>nota = 7
+if nota >= 6:
+    print("aprovado")
+else:
+    print("recuperação")</pre>
+    </div>
+    <div class="card">
+      <h2>5. Repetição: for</h2>
+      <p>range(3) produz 0, 1 e 2. O bloco recuado roda uma vez para cada um.</p>
+      <pre>for i in range(3):
+    print(i)</pre>
+    </div>
+    <div class="card">
+      <h2>6. Função: uma receita com nome</h2>
+      <p>def guarda a receita. return devolve o resultado. Quem chama recebe esse resultado.</p>
+      <pre>def dobro(n):
+    return n * 2
+print(dobro(4))</pre>
+    </div>
+    <div class="card">
+      <h2>7. Lista e dicionário</h2>
+      <p>Lista é uma fila numerada, começando em 0. Dicionário é uma caixa com etiqueta.</p>
+      <pre>nomes = ["Ana", "Bia"]
+print(nomes[0])
+aluno = {"nome": "Ana", "nota": 8}
+print(aluno["nota"])</pre>
+    </div>
+    <div class="card">
+      <h2>8. Erro: leia a última linha</h2>
+      <p>Quando o programa para, a última linha da mensagem diz o tipo do erro. NameError: você usou um nome que não existe. TypeError: você misturou tipos.</p>
+      <pre>try:
+    print(int("8"))
+except ValueError:
+    print("isto não é número")</pre>
+    </div>
+    <div class="card">
+      <h2>9. Frontend: a tela</h2>
+      <p>HTML é a estrutura. Um botão é uma etiqueta button. CSS é a aparência: cor, tamanho, espaço. JavaScript é o que acontece ao tocar. Frontend é essa tela. Em palavras literais: o que a pessoa vê.</p>
+      <pre><button>Salvar</button></pre>
+    </div>
+    <div class="card">
+      <h2>10. Backend e API</h2>
+      <p>Backend é o programa no servidor. A tela não abre o banco. Ela pede ao backend. Esse pedido se chama API. HTTP é a forma do pedido. GET pede para ler. POST pede para criar.</p>
+      <pre>def criar_aluno(nome):
+    return {"ok": True, "nome": nome}
+print(criar_aluno("Ana"))</pre>
+    </div>
+    <div class="card">
+      <h2>11. JSON</h2>
+      <p>JSON é texto com chaves e listas. A API manda JSON para a tela conseguir ler sem adivinhar.</p>
+      <pre>import json
+texto = json.dumps({"nome": "Ana"})
+print(texto)
+print(json.loads(texto)["nome"])</pre>
+    </div>
+    <div class="card">
+      <h2>12. CRUD e SQL</h2>
+      <p>CRUD são quatro atos: criar, ler, atualizar, apagar. SQL é a língua do banco. INSERT cria. SELECT lê. UPDATE atualiza. DELETE apaga. A lista abaixo é o mesmo ato, sem banco.</p>
+      <pre>alunos = []
+alunos.append("Ana")
+print(alunos)
+alunos[0] = "Ana Souza"
+alunos.pop(0)
+print(alunos)</pre>
+    </div>
+    <div class="card">
+      <h2>13. Avançado: classe</h2>
+      <p>Uma classe é um molde. O objeto é a peça feita com o molde. self é a própria peça.</p>
+      <pre>class Aluno:
+    def __init__(self, nome):
+        self.nome = nome
+    def ficha(self):
+        return "Aluno: " + self.nome
+print(Aluno("Ana").ficha())</pre>
+    </div>
+    <div class="card">
+      <h2>14. Avançado: módulo</h2>
+      <p>Um módulo é outro arquivo com funções. import traz essas funções para este arquivo. No laboratório, os módulos da biblioteca padrão, como json e math, já existem.</p>
+      <pre>import math
+print(math.sqrt(9))</pre>
+    </div>
+    <div class="card">
+      <h2>15. Avançado: o caminho de um produto</h2>
+      <p>Em palavras literais, um produto full stack faz esta fila: a pessoa toca em Salvar; o JavaScript manda um POST; o Python confere o dado; o SQL grava; a API devolve JSON; a tela mostra "salvo". Teste é rodar um caso conhecido e conferir a saída. Deploy é colocar esse programa num servidor ligado, para outra pessoa abrir.</p>
+      <p>Você chegou ao avançado quando consegue escrever essa fila sozinho, com um exemplo pequeno, e explicar cada sigla da tabela sem olhar.</p>
+    </div>
+  </section>
+
+  <section id="prompts" class="hidden">
+    <div class="card">
+      <h2>Prompt: como pedir a uma IA</h2>
+      <p>Esta parte já existia. Continua aqui, com o sentido literal. Um prompt é o texto que você envia. A IA responde a esse texto. Ela não vê o que você não escreveu.</p>
+      <p>Use esta estrutura, preenchendo os colchetes:</p>
+      <pre>Você é um [papel].
+Sua tarefa é: [o que deve fazer].
+Responda de forma [como deve responder].
+Contexto: [o que a pessoa já sabe].</pre>
+      <p>Exemplo literal:</p>
+      <pre>Você é um professor paciente de programação.
+Sua tarefa é: explicar o que é uma variável de forma simples.
+Responda de forma curta e use uma analogia do dia a dia.
+Contexto: a pessoa nunca programou.</pre>
+      <p>O prompt pede explicação. Não executa o programa. Para ver o programa rodar, use o Laboratório.</p>
+    </div>
+  </section>
+
+  <section id="lab" class="hidden">
+    <div class="card">
+      <h2>Laboratório</h2>
+      <p class="muted">Escreva Python e rode. A primeira vez baixa o interpretador e precisa de internet.</p>
+      <p>
+        <button class="go" data-ex="print("primeira")\nprint("segunda")">Peça 1</button>
+        <button class="go" data-ex="nota = 7\nif nota >= 6:\n    print("aprovado")\nelse:\n    print("recuperação")">Peça 4</button>
+        <button class="go" data-ex="alunos = []\nalunos.append("Ana")\nprint(alunos)\nalunos[0] = "Ana Souza"\nalunos.pop(0)\nprint(alunos)">Peça 12</button>
+      </p>
+      <textarea id="codigo">nome = "Ana"
+nota = 8
+if nota >= 6:
+    print(nome, "aprovada")
+else:
+    print(nome, "em recuperação")</textarea>
+      <p><button class="go" id="rodar">Rodar</button></p>
+      <pre id="saida">A saída aparece aqui.</pre>
+    </div>
+  </section>
+
+  <section id="siglas" class="hidden">
+    <div class="card">
+      <h2>Siglas, no sentido literal</h2>
+      <table>
+        <tr><th>Sigla</th><th>Significa</th></tr>
+        <tr><td>IDE</td><td>O programa em que se escreve e se roda código.</td></tr>
+        <tr><td>API</td><td>O pedido combinado entre a tela e o servidor.</td></tr>
+        <tr><td>HTTP</td><td>A forma desse pedido na rede.</td></tr>
+        <tr><td>GET / POST</td><td>Ler / criar.</td></tr>
+        <tr><td>JSON</td><td>Texto com chaves e listas, a resposta da API.</td></tr>
+        <tr><td>REST</td><td>Organizar a API em caminhos, um ato por caminho.</td></tr>
+        <tr><td>CRUD</td><td>Criar, ler, atualizar, apagar.</td></tr>
+        <tr><td>SQL</td><td>A língua do banco de dados.</td></tr>
+        <tr><td>HTML</td><td>A estrutura da tela.</td></tr>
+        <tr><td>CSS</td><td>A aparência da tela.</td></tr>
+        <tr><td>JS</td><td>JavaScript, o comportamento da tela.</td></tr>
+        <tr><td>Frontend</td><td>O que a pessoa vê.</td></tr>
+        <tr><td>Backend</td><td>O servidor. Nesta trilha, em Python.</td></tr>
+        <tr><td>Full stack</td><td>Tela e servidor, as duas pontas.</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <section id="duvidas" class="hidden">
+    <div class="card">
+      <h2>Dúvidas literais</h2>
+      <p><strong>Programar é falar com a IA?</strong> Não. Programar é escrever a lista de ordens. A IA pode explicar. O Laboratório executa.</p>
+      <p><strong>= guarda ou compara?</strong> Em Python, = guarda. Comparar igual é ==.</p>
+      <p><strong>Por que o recuo importa?</strong> O Python usa o recuo para saber o que está dentro do if, do for e da função.</p>
+      <p><strong>O que eu faço se der erro?</strong> Leia a última linha. Ela nomeia o erro. Volte à peça que ensinou aquele nome.</p>
+      <p><strong>Quando eu sou avançado?</strong> Quando escreve sozinho a fila da peça 15 e explica as siglas sem olhar a tabela.</p>
+    </div>
+  </section>
+</main>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.26.2/full/pyodide.js"></script>
+<script>
+document.querySelectorAll("nav button").forEach(b => b.onclick = () => {
+  document.querySelectorAll("nav button").forEach(x => x.classList.remove("on"));
+  b.classList.add("on");
+  document.querySelectorAll("main section").forEach(s => s.classList.add("hidden"));
+  document.getElementById(b.dataset.tab).classList.remove("hidden");
+});
+document.querySelectorAll("[data-ex]").forEach(b => b.onclick = () => {
+  document.getElementById("codigo").value = b.dataset.ex;
+});
+let py = null;
+document.getElementById("rodar").onclick = async () => {
+  const saida = document.getElementById("saida");
+  saida.textContent = "Carregando o Python...";
+  try {
+    if (!py) py = await loadPyodide();
+    py.runPython("import sys\nfrom io import StringIO\nsys.stdout = StringIO()");
+    await py.runPythonAsync(document.getElementById("codigo").value);
+    saida.textContent = py.runPython("sys.stdout.getvalue()") || "(sem saída; use print)";
+  } catch (e) { saida.textContent = String(e); }
+};
+</script>
+</body>
+</html>
